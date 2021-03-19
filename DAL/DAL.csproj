@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Version>4.0.0</Version>
+    <Description>Data Access Layer for the Quick Application template</Description>
+    <Copyright>Copyright © 2019 www.ebenmonney.com</Copyright>
+    <PackageProjectUrl>https://www.ebenmonney.com/quickapp</PackageProjectUrl>
+    <Company>EBENMONNEY</Company>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\Interfaces\**" />
+    <EmbeddedResource Remove="Models\Interfaces\**" />
+    <None Remove="Models\Interfaces\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Core\ApplicationPermissions.cs" />
+    <Compile Remove="Core\ProfileConstants.cs" />
+    <Compile Remove="HttpUnitOfWork.cs" />
+    <Compile Remove="Models\ApplicationRole.cs" />
+    <Compile Remove="Models\ApplicationUser.cs" />
+    <Compile Remove="Models\AuditableEntity.cs" />
+    <Compile Remove="Models\OrderDetail.cs" />
+    <Compile Remove="Models\Product.cs" />
+    <Compile Remove="Models\ProductCategory.cs" />
+    <Compile Remove="Repositories\Interfaces\ICustomerRepository.cs" />
+    <Compile Remove="Repositories\MRepository.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.4" />
+  </ItemGroup>
+
+</Project>

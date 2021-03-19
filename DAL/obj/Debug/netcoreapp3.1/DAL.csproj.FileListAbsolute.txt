@@ -1,0 +1,17 @@
+C:\Users\PAVILION15\Documents\QuickApp\DAL\bin\Debug\netcoreapp3.1\DAL.deps.json
+C:\Users\PAVILION15\Documents\QuickApp\DAL\bin\Debug\netcoreapp3.1\DAL.dll
+C:\Users\PAVILION15\Documents\QuickApp\DAL\bin\Debug\netcoreapp3.1\DAL.pdb
+C:\Users\PAVILION15\Documents\QuickApp\DAL\obj\Debug\netcoreapp3.1\DAL.csprojAssemblyReference.cache
+C:\Users\PAVILION15\Documents\QuickApp\DAL\obj\Debug\netcoreapp3.1\DAL.AssemblyInfoInputs.cache
+C:\Users\PAVILION15\Documents\QuickApp\DAL\obj\Debug\netcoreapp3.1\DAL.AssemblyInfo.cs
+C:\Users\PAVILION15\Documents\QuickApp\DAL\obj\Debug\netcoreapp3.1\DAL.csproj.CoreCompileInputs.cache
+C:\Users\PAVILION15\Documents\QuickApp\DAL\obj\Debug\netcoreapp3.1\DAL.dll
+C:\Users\PAVILION15\Documents\QuickApp\DAL\obj\Debug\netcoreapp3.1\DAL.pdb
+C:\Users\PAVILION15\source\repos\WebApplication10\DAL\obj\Debug\netcoreapp3.1\DAL.AssemblyInfoInputs.cache
+C:\Users\PAVILION15\source\repos\WebApplication10\DAL\obj\Debug\netcoreapp3.1\DAL.AssemblyInfo.cs
+C:\Users\PAVILION15\source\repos\WebApplication10\DAL\obj\Debug\netcoreapp3.1\DAL.csproj.CoreCompileInputs.cache
+C:\Users\PAVILION15\source\repos\WebApplication10\DAL\obj\Debug\netcoreapp3.1\DAL.dll
+C:\Users\PAVILION15\source\repos\WebApplication10\DAL\obj\Debug\netcoreapp3.1\DAL.pdb
+C:\Users\PAVILION15\source\repos\WebApplication10\DAL\bin\Debug\netcoreapp3.1\DAL.deps.json
+C:\Users\PAVILION15\source\repos\WebApplication10\DAL\bin\Debug\netcoreapp3.1\DAL.dll
+C:\Users\PAVILION15\source\repos\WebApplication10\DAL\bin\Debug\netcoreapp3.1\DAL.pdb

@@ -227,7 +227,7 @@
     "Microsoft.EntityFrameworkCore/5.0.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-upRpXluUeONMYO+O3RU8G+ZZcrnDrnNVWg4eJmSfertTdw7Hc5tgIeg/O8+oBKqf+OvBrQKW0U3PI9yoTsuPYg==",
+      "sha512": "sha512-x099kIJrYPOBQ7KLqLa9J84p9Zx0JNVTwmjGxGW0VxCZmSubRXQBa8YQRVkBXJt3uMQ/+CkgUkwa1zw/Qx/xTg==",
       "path": "microsoft.entityframeworkcore/5.0.4",
       "hashPath": "microsoft.entityframeworkcore.5.0.4.nupkg.sha512"
     },
@@ -339,7 +339,7 @@
     "System.Text.Encodings.Web/4.5.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Xg4G4Indi4dqP1iuAiMSwpiWS54ZghzR644OtsRCm/m/lBMG8dUBhLVN7hLm8NNrNTR+iGbshCPTwrvxZPlm4g==",
+      "sha512": "sha512-+AL7vP4ApfVSCSxphwM/fNeUp7ij7W/Gubc3jBK9wIG5SnzthpRHpKeTIutHRXlzukl9qgfGqUymQ4jPkoKieQ==",
       "path": "system.text.encodings.web/4.5.0",
       "hashPath": "system.text.encodings.web.4.5.0.nupkg.sha512"
     }

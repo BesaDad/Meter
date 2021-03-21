@@ -8,7 +8,7 @@ namespace DAL.Core.Interfaces
 {
     public interface IHouseService
     {
-        Task<bool> AddHouse(House house);
+        //Task<bool> AddHouse(House house);
         
     }
 }

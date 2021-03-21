@@ -5,7 +5,7 @@ using DAL.Core.Interfaces;
 
 namespace DAL.Core
 {
-    public class HouseService :IHouseService
+    public class HouseService : IHouseService
     {
     }
 }

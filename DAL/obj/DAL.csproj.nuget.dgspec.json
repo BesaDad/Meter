@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PAVILION15\\source\\repos\\WebApplication10\\DAL\\DAL.csproj": {}
+    "D:\\Projects\\MeterApp\\Meter\\DAL\\DAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PAVILION15\\source\\repos\\WebApplication10\\DAL\\DAL.csproj": {
+    "D:\\Projects\\MeterApp\\Meter\\DAL\\DAL.csproj": {
       "version": "4.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PAVILION15\\source\\repos\\WebApplication10\\DAL\\DAL.csproj",
+        "projectUniqueName": "D:\\Projects\\MeterApp\\Meter\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "C:\\Users\\PAVILION15\\source\\repos\\WebApplication10\\DAL\\DAL.csproj",
-        "packagesPath": "C:\\Users\\PAVILION15\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PAVILION15\\source\\repos\\WebApplication10\\DAL\\obj\\",
+        "projectPath": "D:\\Projects\\MeterApp\\Meter\\DAL\\DAL.csproj",
+        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\MeterApp\\Meter\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\PAVILION15\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

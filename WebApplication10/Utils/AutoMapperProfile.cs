@@ -27,14 +27,14 @@ namespace MeterApp.Utils
             //    .ForMember(d => d.Id, map => map.Condition(src => src.Id != null));
 
             CreateMap<House, HouseVM>()
-                .ReverseMap();
+                .ForMember(p => p.Meters, map => map.Ignore());
             CreateMap<HouseVM, House>()
-                .ReverseMap();
+                .ForMember(p => p.Meters, map => map.Ignore());
 
             CreateMap<Meter, MeterVM>()
-                .ReverseMap();
+                .ForMember(p => p.House, map => map.Ignore());
             CreateMap<MeterVM, Meter>()
-                .ReverseMap();
+                .ForMember(p => p.House, map => map.Ignore());
 
          
         }

@@ -10,6 +10,7 @@ using MeterApp.ViewModels;
 using AutoMapper;
 using System.Net;
 using MeterApp.Utils;
+using DAL.Core.Interfaces;
 
 namespace MeterApp.Controllers
 {
@@ -17,15 +18,18 @@ namespace MeterApp.Controllers
     [Route("api/[controller]")]
     public class MeterController : ControllerBase
     {
+
         private readonly IMapper _mapper;
         private readonly ILogger<MeterController> _logger;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IMeterService _meterService;
 
-        public MeterController(ILogger<MeterController> logger, IUnitOfWork unitOfWork, IMapper mapper)
+        public MeterController(ILogger<MeterController> logger, IUnitOfWork unitOfWork, IMapper mapper, IMeterService meterService)
         {
             _mapper = mapper;
             _logger = logger;
             _unitOfWork = unitOfWork;
+            _meterService = meterService;
         }
 
         [HttpPost]
@@ -88,7 +92,41 @@ namespace MeterApp.Controllers
             }
 
             return NotFound(new { success = false, message = "Дом не найден" });
+        }
 
+        [HttpPut]
+        public IActionResult AddMeterToHouse(int houseId, string meterGuid)
+        {
+            if (houseId <= 0)
+            {
+                BadRequest(new { success = false, message = "Некорректный идентификатор дома." });
+            }
+                 
+            try
+            {
+                var house = _unitOfWork.Houses.Get(houseId);
+                if (house != null)
+                {
+                    house.MeterGiud = meterGuid;
+                    _unitOfWork.Houses.Update(house);
+                    _unitOfWork.SaveChanges();
+
+                    return Ok(new { success = true, message = "Счетчик успешно добавлен." });
+                }
+
+                return NotFound(new { success = false, message = "Дом не найден" });
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", $"Произошла ошибка, обратитесь за помощью к администратору. {ex.Message}");
+                return BadRequest(new { success = false, errors = ModelState.Errors() });
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetHouseWithMaxMeterQnty()
+        {
+            return await _meterService.HouseWithMaxMeterQnty();  
         }
 
     }

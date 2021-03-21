@@ -8,6 +8,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using System.Net;
+using DAL.Core.Interfaces;
+using DAL.Core;
 
 namespace MeterApp
 {
@@ -36,7 +38,7 @@ namespace MeterApp
             });
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            //services.AddScoped<IAccountManager, AccountManager>();
+            services.AddScoped<IMeterService, MeterService>();
 
             services.AddTransient<IDatabaseInitializer, DatabaseInitializer>();
         }

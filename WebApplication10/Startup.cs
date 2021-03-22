@@ -1,4 +1,5 @@
 using DAL;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -40,7 +41,9 @@ namespace MeterApp
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IMeterService, MeterService>();
 
-            services.AddTransient<IDatabaseInitializer, DatabaseInitializer>();
+            services.AddAutoMapper(typeof(Startup));
+
+            services.AddSingleton<IDatabaseInitializer, DatabaseInitializer>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

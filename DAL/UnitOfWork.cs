@@ -17,8 +17,8 @@ namespace DAL
     {
         readonly MeterDbContext _context;
 
-        IMeterRepository _products;
-        IHouseRepository _orders;
+        IMeterRepository _meters;
+        IHouseRepository _houses;
 
 
 
@@ -33,10 +33,10 @@ namespace DAL
         {
             get
             {
-                if (_products == null)
-                    _products = new MeterRepository(_context);
+                if (_meters == null)
+                    _meters = new MeterRepository(_context);
 
-                return _products;
+                return _meters;
             }
         }
 
@@ -46,10 +46,10 @@ namespace DAL
         {
             get
             {
-                if (_orders == null)
-                    _orders = new HouseRepository(_context);
+                if (_houses == null)
+                    _houses = new HouseRepository(_context);
 
-                return _orders;
+                return _houses;
             }
         }
 

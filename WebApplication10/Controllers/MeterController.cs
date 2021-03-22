@@ -15,7 +15,7 @@ using DAL.Core.Interfaces;
 namespace MeterApp.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/meter")]
     public class MeterController : ControllerBase
     {
 
@@ -77,6 +77,7 @@ namespace MeterApp.Controllers
         }
 
         [HttpGet]
+        [Route("getAllHousesById")]
         public IActionResult GetHouseById(int houseId)
         {
             if (houseId <= 0)
@@ -94,6 +95,18 @@ namespace MeterApp.Controllers
             return NotFound(new { success = false, message = "Дом не найден" });
         }
 
+        [HttpGet]
+        [Route("getallhouses")]
+        public async  Task<IActionResult> GetAllHouses()
+        {
+            var houses = await _unitOfWork.Houses.GetAllAsync();
+
+            if (houses.Any())
+                return Ok(houses);
+
+            return NoContent();
+        }
+
         [HttpPut]
         public IActionResult AddMeterToHouse(int houseId, string meterGuid)
         {
@@ -101,7 +114,12 @@ namespace MeterApp.Controllers
             {
                 BadRequest(new { success = false, message = "Некорректный идентификатор дома." });
             }
-                 
+
+            if (string.IsNullOrEmpty(meterGuid))
+            {
+                BadRequest(new { success = false, message = "Ввдите идентификатор счетчика." });
+            }
+
             try
             {
                 var house = _unitOfWork.Houses.Get(houseId);
@@ -126,8 +144,103 @@ namespace MeterApp.Controllers
         [HttpGet]
         public async Task<IActionResult> GetHouseWithMaxMeterQnty()
         {
-            return await _meterService.HouseWithMaxMeterQnty();  
+            var maxHouse = await _meterService.HouseWithMaxOrMinMeterQnty(true);
+
+            if (maxHouse.Any())
+                return Ok(maxHouse); 
+
+            return NoContent();
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetHouseWithMinMeterQnty()
+        {
+            var maxHouse = await _meterService.HouseWithMaxOrMinMeterQnty(false);
+
+            if (maxHouse.Any())
+                return Ok(maxHouse);
+
+            return NoContent();
+        }
+
+        [HttpPost]
+        public IActionResult AddMeteringByMeterGiud(MeterVM newMeter)
+        {
+            if (!ModelState.IsValid)
+            {
+                Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                return BadRequest(new { success = false, errors = ModelState.Errors() });
+            }
+
+            if (string.IsNullOrEmpty(newMeter?.MeterGuid))
+            {
+                BadRequest(new { success = false, message = "Ввдите идентификатор счетчика." });
+            }
+
+            try
+            {
+                var house = _unitOfWork.Houses.Find(x => x.MeterGiud.ToLower() == newMeter.MeterGuid.ToLower()).FirstOrDefault();
+
+                if (house == null)
+                    return NotFound(new { success = false, message = "Указанный счетчик не зарегистрирован." });
+
+                var newMetering = new Meter
+                {
+                    HouseId = house.Id,
+                    DateMeter = DateTime.Now,
+                    Quantity = newMeter.Quantity
+                };
+
+                _unitOfWork.Meters.Add(newMetering);
+                _unitOfWork.SaveChanges();
+
+                return Ok(new { success = true, message = "Показания успешно добавлены." });
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", $"Произошла ошибка, обратитесь за помощью к администратору. {ex.Message}");
+                return BadRequest(new { success = false, errors = ModelState.Errors() });
+            }
+        }
+
+        [HttpPost]
+        public IActionResult AddMeteringByHouseId(MeterVM newMeter)
+        {
+            if (!ModelState.IsValid)
+            {
+                Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                return BadRequest(new { success = false, errors = ModelState.Errors() });
+            }
+
+            if (newMeter?.HouseId <= 0)
+            {
+                BadRequest(new { success = false, message = "Укажите дом." });
+            }
+
+            try
+            {
+                var house = _unitOfWork.Houses.Get(newMeter.HouseId); 
+
+                if (house == null)
+                    return NotFound(new { success = false, message = "Дом не найден." });
+
+                var newMetering = new Meter
+                {
+                    HouseId = house.Id,
+                    DateMeter = DateTime.Now,
+                    Quantity = newMeter.Quantity
+                };
+
+                _unitOfWork.Meters.Add(newMetering);
+                _unitOfWork.SaveChanges();
+
+                return Ok(new { success = true, message = "Показания успешно добавлены." });
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", $"Произошла ошибка, обратитесь за помощью к администратору. {ex.Message}");
+                return BadRequest(new { success = false, errors = ModelState.Errors() });
+            }
+        }
     }
 }

@@ -84,5 +84,15 @@ namespace DAL.Repositories
         {
             return _entities.ToList();
         }
+
+        public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
+        {
+            return await _entities.ToListAsync();
+        }
+
+        public virtual IQueryable<TEntity> GetAllQuery()
+        {
+            return _entities.AsQueryable();
+        }
     }
 }

@@ -14,7 +14,6 @@ namespace DAL.Core.Interfaces
 {
     public interface IMeterService
     {
-        Task<House> HouseWithMaxMeterQnty();
-        Task<House> HouseWithMinMeterQnty();
+        Task<IEnumerable<House>> HouseWithMaxOrMinMeterQnty(bool isMax);
     }
 }

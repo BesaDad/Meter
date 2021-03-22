@@ -32,7 +32,8 @@ namespace MeterApp.Utils
                 .ForMember(p => p.Meters, map => map.Ignore());
 
             CreateMap<Meter, MeterVM>()
-                .ForMember(p => p.House, map => map.Ignore());
+                .ForMember(p => p.House, map => map.Ignore())
+                .ForMember(p => p.MeterGuid, map => map.Ignore());
             CreateMap<MeterVM, Meter>()
                 .ForMember(p => p.House, map => map.Ignore());
 

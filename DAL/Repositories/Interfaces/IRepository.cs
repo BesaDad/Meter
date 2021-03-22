@@ -29,6 +29,8 @@ namespace DAL.Repositories.Interfaces
         TEntity GetSingleOrDefault(Expression<Func<TEntity, bool>> predicate);
         TEntity Get(int id);
         IEnumerable<TEntity> GetAll();
+        Task<IEnumerable<TEntity>> GetAllAsync();
+        IQueryable<TEntity> GetAllQuery();
     }
 
 }
